@@ -1,0 +1,114 @@
+.bg {
+
+    /*background-image: url("src\assets\Background.jpg");*/
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: 100%;
+    }
+    
+    /* Style the tab */
+    .tab {
+    overflow: hidden;
+    border: 1px solid rgba(47, 0, 255, 0.575);
+    background-color: rgb(4, 4, 196);
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+    width: 18%;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 19px 20px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: white;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+    background-color: rgb(0, 0, 255);
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: rgba(255, 255, 255, 0.884);
+        color: black;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    }
+    
+    .containerReview {
+    border-radius: 5px;
+    border: 2px solid rgba(47, 0, 255, 0.575);
+    background-color: rgba(211, 211, 211, 0.534);
+    padding: 20px;
+    width: 40%;
+    }
+    
+    /* Style the tab content */
+    .tabcontentReview {
+    padding: 6px 12px;
+    border-top: none;
+    }
+    
+    .Center_Text{
+    text-align: center;
+    color: #000000;
+    border-bottom: solid black;
+    width: 42%;
+    }
+    
+    input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;  
+    margin-bottom: 16px;
+    resize: vertical;
+    }
+    
+    input[type=submit] {
+    background-color: #0400f59d;
+    color: white;
+    padding: 12px 20px;
+    border: solid black;
+    border-radius: 4px;
+    cursor: grab;
+    width: 100%;
+    }
+    
+    input[type=submit]:hover {
+    background-color: #1100ff;
+    }
+    
+    .InfoLinks{
+    color: blanchedalmond;
+    }
+    
+    .InfoLinks:hover{
+    color: rgba(255, 235, 205, 0.473);
+    }
+    
+    .InfoHeading{
+        color: blanchedalmond;
+        font-size: large;
+    }
+    
+    .WorkDayCheckBox{
+        width:33%; 
+        height:50%;
+        float:left;
+        text-align: center;
+    }

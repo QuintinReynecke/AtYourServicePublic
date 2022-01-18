@@ -1,0 +1,181 @@
+.bg {
+
+    /*background-image: url("src\assets\Background.jpg");*/
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: 100%;
+    }
+  
+    /* Style the tab */
+    .tab {
+    overflow: hidden;    
+    border: 1px solid rgba(47, 0, 255, 0.575);
+    background-color: rgb(4, 4, 196);
+  
+    }
+  
+    /* Style the buttons inside the tab */
+    .tab button {
+    width: 18%;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 19px 20px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: white;
+    }
+  
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+    background-color: rgb(0, 0, 255);
+    }
+  
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: rgba(255, 255, 255, 0.884);
+      color: black;
+    }
+  
+    /* Style the tab content */
+    .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    }
+  
+    .LoginBox {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width: 45%;
+      border: solid black;
+    }
+  
+    input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    }
+  
+    input[type=password], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(5, 3, 3);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    }
+  
+    input[type=submit] {
+    background-color: darkblue;
+    color: white;
+    padding: 12px 20px;
+    border: solid black;
+    border-radius: 4px;
+    cursor: grab;
+    width: 100%;
+    }
+  
+    input[type=submit]:hover {
+    background-color: rgb(0, 0, 255);
+    }
+  
+    input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+    }
+  
+    .TypeS{
+    background-color: #0400f53a;
+    color: white;
+    padding: 12px 20px;
+    border: solid black;
+    border-radius: 10px;
+    cursor: grab;
+    width: 50%;
+    }
+  
+    .TypeS:hover {
+    background-color: rgb(0, 0, 255);
+    }
+  
+    .LoginRegister{
+    background-color: rgba(4, 4, 223, 0.623);
+    color: #010005;
+    font-size: medium;
+    border: solid black;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: grab;
+    width: 50%;
+    color: white;
+    }
+  
+    .LoginRegister:hover{
+    background-color: rgb(0, 0, 255);
+    }
+  
+    .LoginRegisterWhite{
+      background-color: #ffffffaf;
+      color: black;
+      padding: 12px 20px;
+      border: solid black;
+      border-radius: 10px;
+      cursor: grab;
+      width: 50%;
+    }
+  
+    .Center_Text{
+    text-align: center;
+    border-bottom: solid black;
+    }
+  
+    .InfoLinks{
+    color: blanchedalmond;
+    }
+  
+    .InfoLinks:hover{
+    color: rgba(255, 235, 205, 0.473);
+    }
+  
+    .InfoHeading{
+      color: blanchedalmond;
+      font-size: large;
+    }
+  
+    .buttonNext{
+      background-color: rgb(0, 0, 255);
+      color: white;
+      padding: 12px 20px;
+      border: solid black;
+      border-radius: 4px;
+      cursor: grab;
+      width: 15%;
+    }
+  
+    .WorkDayCheckBox{
+      width:33%; 
+      height:50%;
+      float:left;
+      text-align: center;
+    }
+  
+  

@@ -1,0 +1,89 @@
+<div class="bg">
+
+    <!--<h1 style="text-align: center;">
+        <img src="../../assets/Logo3.PNG" style="width: 15%;height: 5%;border-radius: 100%;">
+    </h1>-->
+
+    <div class="tab">
+        <img src="../../assets/Logo3.PNG" style="width: 8%;border-radius: 100%;float: left;">
+        <button routerLink="/services">Services</button>
+        <button routerLink="/home" class="active">Home</button>
+        <button routerLink="/about">About</button>
+        <button routerLink="/contact-us">Contact Us</button>
+        <button routerLink="/login">My Profile</button>
+    </div>
+    <br>
+
+    <div style="background-color: black;">
+
+        <!--HEADINGs-->
+        <br>
+        <div class="WorkDayCheckBox">
+            <label class="InfoHeading"><b><u>Pages:</u></b></label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoHeading"><b><u>Information:</u></b></label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoHeading"><b><u>Links:</u></b></label>
+        </div><br><br>
+
+        <!--Row 1-->
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="ServicesRouter()">Service</label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="AboutRouter()">FAQ </label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" >Application </label>
+        </div><br>
+
+        <!--Row 2-->
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="HomeRouter()">Home</label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="ContactUsRouter()">Contact Us </label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="AboutRouter()">Terms and Conditions </label>
+        </div><br>
+
+        <!--Row 3-->
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="AboutRouter()">About</label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="AboutRouter()">About </label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks"> </label>
+        </div><br>
+
+        <!--Row 4-->
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="ContactUsRouter()">Contact Us</label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks"> </label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks"> </label>
+        </div><br>
+
+        <!--Row 5-->
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks" (click)="ProfileRouter()">My Profile</label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks"> </label>
+        </div>
+        <div class="WorkDayCheckBox">
+            <label class="InfoLinks"> </label>
+        </div><br>
+
+        <br>
+    </div>
+
+</div>
