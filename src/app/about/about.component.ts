@@ -19,8 +19,8 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     /* Populate the Ion Cards with the data from the database */
-    /*this.http.get('https://localhost:5001/getServiceList').subscribe(GetAllServiceList => {
-      ////console.log(GetAllServiceList);
+    this.http.get('https://localhost:5001/getServiceList').subscribe(GetAllServiceList => {
+      console.log(GetAllServiceList);
       this.testBool = false;
       this.counter = 0;
 
@@ -37,7 +37,7 @@ export class AboutComponent implements OnInit {
         }
         this.counter++;
       }
-    });*/
+    });
   }
 
   AboutPageSelected() {

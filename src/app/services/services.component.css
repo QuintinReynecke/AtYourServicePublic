@@ -47,12 +47,8 @@
     border-top: none;
     }
   
-    .ServiceBox {
-      border: 2px solid rgba(47, 0, 255, 0.575);
-      border-radius: 5px;
-      background-color: rgba(211, 211, 211, 0.534);
-      padding: 20px;
-      height: 600px;
+    .NameSearch{
+      width: 50%;
     }
   
     .ServicesInfo{
@@ -78,10 +74,308 @@
     color: blanchedalmond;
     font-size: large;
     }
+
+    /* Path Header  */
+    .PathView{
+      font-size: large;
+      color: gray;
+    }
   
-    .WorkDayCheckBox{
+  /* Button Style for Selecting Users  */
+  .ButtonStyle{
+    color: white;
+    background-color: rgb(4, 4, 196);
+    height: 35px;
+    width: 100%;
+  }
+
+  /* Devine border so that content does not go over */
+
+  .BorderStyle{
+    max-height: inherit;
+    box-sizing:border-box;
+  }
+
+  #topDiv {
+    max-height: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid rgba(47, 0, 255, 0.575);
+    border-radius: 5px;
+    background-color: rgba(211, 211, 211, 0.534);
+    padding: 20px;
+    height: 615px;
+  }
+
+  #insideDiv {    
+    overflow-y: auto;
+  }
+
+  .InfoLinks{
+    color: blanchedalmond;
+  }
+
+  .InfoLinks:hover{
+    color: rgba(255, 235, 205, 0.473);
+  }
+
+  .InfoHeading{
+    color: blanchedalmond;
+    font-size: large;
+  }
+
+  .WorkDayCheckBox{
     width:33%; 
     height:50%;
     float:left;
     text-align: center;
+  }
+
+  .watermarkImage{    
+    transform: translate(4%, 80%);
+    text-align: center;
+    margin-top: 3%;    
+    border-radius: 20px;
+  }
+
+  /* Style filter and Search Buttons */
+  .SearchButtonStyle{
+    width: 50%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  .SearchButtonStyleSub{
+    width: 50%;
+    height: 18px;
+    border-radius: 6px;
+    border: 1px solid rgb(0, 0, 0);
+  }
+
+  .SearchStyleOptionBox{        
+    text-align: center;
+    margin-top: 1%;    
+    border-radius: 20px;   
+    height:50%;  
+  }
+
+  .centerSearchButtons{
+    background-color: blue;
+     left: 50%;
+     transform: translate(-50%, 10%);
+     position: absolute;
+     text-align: center;
+     background-size: cover;
+     border-radius: 15px;
+     border: 1px solid #888;
+     width: 85%;    
+     height: 30px;
+   }
+
+   /* Review button Style */
+   .AddReviewButton{
+    background-color: blue;
+    left: 50%;
+    text-align: center;
+    background-size: cover;
+    border-radius: 15px;
+    border: 1px solid #888;
+    width: 30%;    
+    height: 30px;
+   }
+
+   .ReviewText{
+    width: 10%;  
+   }
+
+   /* View image  */
+  .modalViewImageBox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%; /* Full width */
+    height: 95%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 20%;
+  }
+
+  .containerViewImageBox{
+    /*margin-top: 43%;*/
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    /*width: 50%;  Could be more or less, depending on screen size */    
+  }
+
+  .centerImage{
+    height: 500px;
+    transform: translate(200%, -40%); 
+  }
+
+  .centerImageGallary{
+    margin-left: 50%;
+    height: 500px;    
+    transform: translate(-55%, -40%); 
+  }
+
+  /* The Close Button (x) */
+  .closeViewImageBox {
+    font-size: 200%; 
+    width: 10%;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(4, 4, 196);
+  
+    position: relative;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 2px; 
+    margin-top: 0;
+    left: 90%;
+    transform: translate(-50%, -400%); 
+  }  
+  
+  /* Clear floats */
+  .clearfixViewImageBox::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Style the horizontal ruler */
+  .hrViewImageBox {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  
+  /* Change styles for cancel button and UpdateBox button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtnViewImageBox, .ViewImageBoxbtn, .Update_ViewImage_Button {
+       width: 100%;
     }
+  }
+
+  /*  Email View */
+
+  .modalEmailBox {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 0; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+  }
+
+  .containerEmailBox{
+    margin: 1% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    
+    width: 60%; /* Could be more or less, depending on screen size */
+    height: 600px;
+
+    border-radius: 5px;
+    border: 2px solid rgba(47, 0, 255, 0.575);
+    background-color: rgba(211, 211, 211, 0.534);
+    padding: 20px;
+  }
+
+  input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;  
+    margin-bottom: 16px;
+    resize: vertical;
+    }
+
+/* The Close Button (x) */
+.closeEmailBox {
+  font-size: 200%; 
+  width: 15%;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgb(4, 4, 196);
+
+  position: relative;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 2px;
+  top : 0; 
+  left: 78%;
+}  
+
+/* Clear floats */
+.clearfixEmailBox::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Style the horizontal ruler */
+.hrEmailBox {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Change styles for cancel button and UpdateBox button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtnEmailBox, .EmailBoxbtn, .Email_Button {
+     width: 100%;
+  }
+}
+
+.emailStyleText{
+  width: 90%;
+  padding: 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 10%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.emailStyleLongText{
+  width: 90%;
+  height: 200%;
+  padding: 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 11%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+} 
+
+.FooterButton{    
+  width: 100%;
+  height:100px;    
+  background-color: rgba(0, 0, 255, 0.418);
+}
+
+.FooterButton:hover{
+  background-color: blue;
+  cursor: pointer;
+}

@@ -13,24 +13,365 @@
         <button routerLink="/login">My Profile</button>
     </div>
     <br>
-    
-    <div class="ServiceBox">
-        <h1>Service</h1>
 
-        
+    <div class="ServiceBox" id="topDiv">
+        <h1>Service<a class="PathView" *ngIf="CategorySelect">/{{theProvince}}</a>
+            <a class="PathView" *ngIf="ShowPandCResults">/{{theProvince}}/{{theCategory}}/</a>
+        </h1>
+        <!-- Filter and Serach button -->
+        <div>
+            <button class="SearchButtonStyle" (click)="SearchOption('Filter')"
+                [ngStyle]="{'background':FilterColor}">Filter</button>
+            <button class="SearchButtonStyle" (click)="SearchOption('Search')"
+                [ngStyle]="{'background':SearchColor}">Specific
+                Search</button>
+        </div>
+        <!-- Logo Water mark to aquipy space -->
+        <div class="watermarkImage" *ngIf="WaterMark">
+            <img src="../../assets/Logo3.PNG">
+        </div>
+        <br>
+        <!-- Display data -->
+        <div id="insideDiv">
+            <div *ngIf="FilterListView">
+                <!--Province Select-->
+                <div *ngIf="ProvinceSelect">
+                    <button class="ButtonStyle" *ngFor="let card of provinceList;let i=index"
+                        (click)="goToCategory($event)">{{card.Province}}</button>
+                </div>
 
-        <!--<ejs-grid [allowFiltering]='true' [filterSettings]='filterOptions' [dataSource]='GetAllDataVar' class="ServicesInfo">
-            <e-columns>
-                <e-column field='name' headerText='Name'></e-column>
-                <e-column field='photos' headerText='Photos'></e-column>
-                <e-column field='category' headerText='Category'></e-column>
-                <e-column field='description' headerText='Description'></e-column>
-                <e-column field='workLocations' headerText='Work Locations'></e-column>
-                <e-column field='callOutFee' headerText='Call out Fee'></e-column>
-            </e-columns>
-        </ejs-grid>-->
+                <!--Category Select  -->
+                <div *ngIf="CategorySelect">
+                    <button class="ButtonStyle" *ngFor="let Categorcard of categoriesOBJ;let i=index"
+                        (click)="findItem($event)">{{Categorcard.category.typeOfService}}</button>
+                </div>
+
+                <!--Final Results Select  -->
+                <div *ngIf="ShowPandCResults">
+                    <button class="ButtonStyle" *ngFor="let card of filteredList;let i=index"
+                        (click)="findFullInfo(i)">•
+                        {{card.name}}</button>
+                </div>
+            </div>
+            <div *ngIf="SearchListView">
+                <button class="SearchButtonStyleSub" (click)="SearchSpicific('Values')"
+                    [ngStyle]="{'background':ValuesColor}">Filter</button>
+                <button class="SearchButtonStyleSub" (click)="SearchSpicific('Name')"
+                    [ngStyle]="{'background':NameColor}">Specific
+                    Search</button>
+                <!-- Select Values to be searched -->
+                <div *ngIf="SpicificSearch">
+                    <br>
+                    <label>Work Locations : </label>
+                    <select class="SearchStyleOptionBox" [(ngModel)]="ProvinceSelectMenu" name="ProvinceSelectMenu">
+                        <option *ngFor="let card of provinceList;let i=index">
+                            {{card.Province}}</option>
+                    </select>
+                    <br>
+                    <label>Type of service : </label>
+                    <select class="SearchStyleOptionBox" [(ngModel)]="ServiceListSelectMenu"
+                        name="ServiceListSelectMenu">
+                        <option *ngFor="let Categorcard of categoriesOBJ;let i=index">
+                            {{Categorcard.category.typeOfService}}</option>
+                    </select>
+                    <br>
+                    <label>Weekdays : </label>
+                    <select class="SearchStyleOptionBox" [(ngModel)]="WeekdaySelectMenu" name="WeekdaySelectMenu">
+                        <option *ngFor="let card of WeekdayList;let i=index">
+                            {{card.Weekday}}</option>
+                    </select>
+                    <br><br>
+                    <button class="centerSearchButtons" (click)="SearchFilterList()">Search</button>
+                </div>
+                <div *ngIf="NameSearch">
+                    <br>
+                    <label>Name</label>
+                    <br>
+                    <input type="text" class="NameSearch" [(ngModel)]="SearchName" name="SearchName">
+                    <br><br>
+                    <button class="centerSearchButtons" (click)="SearchNameList()">Search</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="HideShowResult">
+            <br>
+            <br><br><br><br>
+            <hr>
+            <h3>Search Results:</h3>
+            <button class="ButtonStyle" *ngFor="let card of filteredList;let i=index" (click)="findFullInfo(i)">•
+                {{card.name}}
+            </button>
+        </div>
+
+        <div *ngIf="ViewProfileDetails" id="insideDiv">
+            <!-- Quintin Code below this line kdk-->
+
+            <div class="Center_Text">
+                <br>
+                <b><u>{{ServiceName}}</u></b>
+                <br><br>
+                <img height="100px" [src]="ProfilePic" (click)="ViewImageDetailBox('ProfileImagesView')">
+
+                <br>
+                <br>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b>Rating: {{UserCurrentReview}}</b>
+                <br><br>
+                <!--<h2>
+                   <div>
+                        <input class="ReviewText" [(ngModel)]="rating" name="rating">
+                        <i name="star" *ngFor="let num of [1,2,3,4,5]" (click)="rate(num)"
+                            [ngStyle]="{'color':getColor(num)}">
+                        </i>  class="AddReviewButton" 
+                    </div>
+                    <button class="AddReviewButton" (click)="AddReview()">Submit</button>
+
+                </h2>-->
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Short Discription:</u></b>
+                <h6>
+                    <div>
+                        <label>{{ServiceDiscription}}</label><br>
+                    </div>
+                </h6>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Call Out Fee:</u></b>
+                <h6>
+                    <div>
+                        <label> • {{ServiceCallOutFee}} </label><br>
+                    </div>
+                </h6>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Working Days:</u></b>
+                <h6>
+                    <div>
+                        <label [ngStyle]="{'color':MondayColor}">Monday</label><br>
+                        <label [ngStyle]="{'color':TuesdayColor}">Tuesday</label><br>
+                        <label [ngStyle]="{'color':WednesdayColor}">Wednesday</label><br>
+                        <label [ngStyle]="{'color':ThursdayColor}">Thursday</label><br>
+                        <label [ngStyle]="{'color':FrydayColor}">Fryday</label><br>
+                        <label [ngStyle]="{'color':SaterdayColor}">Saterday</label><br>
+                        <label [ngStyle]="{'color':SundayColor}">Sunday</label>
+                    </div>
+                </h6>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Type of work:</u></b>
+                <h6>
+                    <div>
+                        <label *ngFor="let ServiceType of SplitServices;let i=index" (click)="findItem($event)">
+                            <label> • {{ServiceType}} </label><br>
+                        </label>
+                    </div>
+                </h6>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Work Locations:</u></b>
+                <h6>
+                    <div *ngIf="EasternCapeSuburbShow">
+                        <label><b> • Eastern-Cape </b></label><br>
+                        <label *ngFor="let ECSuburb of EasternCapeSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{ECSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="FreeStateSuburbShow">
+                        <label><b> • Free-State </b></label><br>
+                        <label *ngFor="let FSSuburb of FreeStateSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{FSSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="GautengSuburbShow">
+                        <label><b> • Gauteng </b></label><br>
+                        <label *ngFor="let GSuburb of GautengSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{GSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="KZNSuburbShow">
+                        <label><b> • KZN </b></label><br>
+                        <label *ngFor="let KSuburb of KZNSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{KSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="LimpopoSuburbShow">
+                        <label><b> • Limpopo </b></label><br>
+                        <label *ngFor="let LSuburb of LimpopoSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{LSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="MpumulangaSuburbShow">
+                        <label><b> • Mpumulanga </b></label><br>
+                        <label *ngFor="let MSuburb of MpumulangaSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{MSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="NorthernCapeSuburbShow">
+                        <label><b> • Northern-Cape </b></label><br>
+                        <label *ngFor="let NCSuburb of NorthernCapeSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{NCSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="NorthWestSuburbShow">
+                        <label><b> • North-West </b></label><br>
+                        <label *ngFor="let NWSuburb of NorthWestSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{NWSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                    <div *ngIf="WesternCapeSuburbShow">
+                        <label><b> • Western-Cape </b></label><br>
+                        <label *ngFor="let WCSuburb of WesternCapeSuburb;let i=index">
+                            <label class="ServiceListLabelSub"> - {{WCSuburb}} </label><br>
+                        </label>
+                        <br>
+                    </div>
+                </h6>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Contact Details:</u></b>
+                <h6>
+                    <div>
+                        <label>
+                            <!--  -->
+                            <!--<icon name="call-outline"></icon>-->
+                            <b> Phone: </b> {{ServicePhone}}
+                            <br>
+                            <br>
+                            <!--<icon name="mail"></icon>-->
+                            <b> Email: </b> {{ToPerson}}
+                            <br>
+                            <br>
+                            <!--<icon name="globe-outline"></icon>-->
+                            <b> Website: </b><a> {{ServiceWebsite}}</a>
+                            <br>
+
+                        </label>
+                    </div>
+                </h6>
+                <button (click)="ShowEmaiBox()">Send a Email</button>
+                <br>
+            </div>
+
+            <div class="Center_Text">
+                <br>
+                <b><u>Gallary:</u></b>
+                <br>
+                <br>
+                <div>
+                    <button style="height: 100px;float: left;" (click)="PreviousImageInDatabase()"
+                        *ngIf="HideImageButtonsforDatabase">
+                        <-Back </button>
+                            <img style="height: 100px;" [src]="ServiceImages"
+                                (click)="ViewImageDetailBox('ServiceImagesView')">
+                            <button slot="end" style="height: 100px;float: right;" (click)="NextImageInDatabase()"
+                                *ngIf="HideImageButtonsforDatabase">Next->
+                            </button>
+                </div>
+
+                <br>
+            </div>
+
+            <!-- View Image in Popup Window, class="containerViewImageBox", class="centerImage"  -->
+            <div id="ViewImage" class="modalViewImageBox">
+                <button (click)="ViewImageDetailBoxHide()" class="closeViewImageBox">X</button>
+                <div>
+                    <div>
+                        <img class="centerImage" [src]="ProfilePic" *ngIf="ViewProfilePic">
+                        <button style="height: 100px;float: left;color: white;font-size: xx-large;background-color: #474e5d;"
+                            (click)="PreviousImageInDatabase()" *ngIf="HideImageButtonsforDatabase"><</button>
+                                <img class="centerImageGallary" [src]="ServiceImages" *ngIf="ViewImages">
+                                <button style="height: 100px;float: right;color: white;font-size: xx-large;background-color: #474e5d;"
+                                    (click)="NextImageInDatabase()" *ngIf="HideImageButtonsforDatabase">></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View Email in Popup Window -->
+            <div id="ViewEmail" class="modalEmailBox">
+                <button (click)="HideEmaiBox()" class="closeEmailBox">X</button>
+                <div class="containerEmailBox">
+                    <h4 class="Center_Text"><b>Email: {{ServiceName}}</b></h4>
+                    
+                    <div>
+                        <label >Your Name: </label><br><br>
+                        <input type="text" placeholder="Name and Surname..." [(ngModel)]="UserNameSurname" name="UserNameSurname"
+                            class="emailStyleText">
+
+                    </div>
+                    <div>
+                        <label >Your Contact Information: </label><br><br>
+                        <input type="text" placeholder="Email or Phone..." [(ngModel)]="UserEmailPhone" name="UserEmailPhone"
+                            class="emailStyleText">
+                    </div>
+                    <div>
+                        <label >Subject: </label><br><br>
+                        <input type="text" placeholder="Subject..." [(ngModel)]="Subject" name="Subject" class="emailStyleText">
+
+                    </div>
+                    <div>
+                        <label >Message: </label><br><br>
+                        <input type="text" placeholder="Message..." [(ngModel)]="UserBody" name="UserBody"
+                            class="emailStyleLongText">
+
+                    </div>
+                    <br><br>
+                    <button class="FooterButton" (click)="SendEmail()">Send Email</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- </content>
+      
+      <footer *ngIf="FooterImageFullScreen">
+        <toolbar class="new-background-color">
+          <button slot="start" (click)="PreviousImageInDatabase()" *ngIf="HideImageButtonsforDatabase">
+            <-Back </button>
+              <button (click)="ViewImageDetailBoxHide()" class="closeViewImageBox">X</button>
+              <button slot="end" (click)="NextImageInDatabase()" *ngIf="HideImageButtonsforDatabase">Next->
+              </button>
+        </toolbar>
+      </footer>
+      
+      <footer *ngIf="AllFooterOptions">
+        <toolbar class="centerFooterButtons">
+          <button class="new-background-colorF" (click)="ShowHideOptions()"><b>{{footerTitle}}</b></button>
+          <button class="new-background-colorF" *ngIf="ShowFooterOptions" href="tel: {{ServicePhone}}">Call</button>
+          <button class="new-background-colorF" (click)="ShowEmaiBox()" *ngIf="ShowFooterOptions">Send a Email
+          </button>
+        </toolbar>
+      </footer>
+      
+      <footer *ngIf="EmailFooter">
+        <toolbar class="centerEmailButtons">
+          <button class="FooterButton" (click)="SendEmail()">Send Email</button>
+        </toolbar>
+      </footer> -->
     </div>
-    <br>   
+    <br>
 
     <div style="background-color: black;">
 
@@ -54,7 +395,7 @@
             <label class="InfoLinks" (click)="AboutRouter()">FAQ </label>
         </div>
         <div class="WorkDayCheckBox">
-            <label class="InfoLinks" >Application </label>
+            <label class="InfoLinks">Application </label>
         </div><br>
 
         <!--Row 2-->
