@@ -44,14 +44,158 @@
         <form>
             <h2><b><u>FAQ</u></b></h2><br>
 
-            <label>Questions</label>
+            <div class="mainFaq">
+                <div>
+                    <label style="color: white;"><b>PLEASE NOTE:</b></label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    The Application is still under development. Any questions or sugestions to make the application
+                    beter, please contact us through the Contact Us page.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can i pay a person over the app?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Not at this stage, but it will be possible in the future.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Is there a monthly fee to use your app?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    No, there is no monthly fee.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can your app find any service?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Do you have a website?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes we do. Goto the contact us page and click on the website button.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Do you have a Facebook account?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes we do. Goto the contact us page and click on the facebook button.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can you add more service categories?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes, send us a message on the contact us page and we will validate the service. If the service exist
+                    it will be added.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can you help setup my profile?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Is your app compatible on android and ios?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes, our app works on both platforms
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">How long untill i get a responce to my questions?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Our team takes about 48 hours to get back to your querys.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Is there a rating system?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Not at this stage, but there will be in the future.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can normal users have a profile to save a service/person to their
+                        favourites?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Not at this stage, but it will be possible in the future.
+                </div>
+            </div>
+            <br>
+
+            <div class="NormalFAQ">
+                <div>
+                    <label style="color: white;">Can I advertise on your application?</label>
+                </div>
+                <br>
+                <div style="color: white;font-size: 17px;">
+                    Yes, contact us through the Contact Us page and we will get back to you.
+                </div>
+            </div>
         </form>
     </div>
     <br>
     <div class="AboutBox">
         <form>
             <h2><b><u>List of Services</u></b></h2>
-            <h6 class="WarnningStyle">Please note!<br>if a service is no listed below please let us know in the contact us
+            <h6 class="WarnningStyle">Please note!<br>if a service is no listed below please let us know in the contact
+                us
                 page!</h6>
             <label *ngFor="let card of ServiceListOBJ;let i=index">
                 <label class="ServiceListLabel"> • {{card.ServiceList.typeOfService}} </label><br>

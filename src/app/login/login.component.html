@@ -164,7 +164,7 @@
         <div class="UserDetailBoxLeft" id="topDiv">
             <div id="insideDiv">
                 <br>
-                <b><u>Profile Picture  </u></b>
+                <b><u>Profile Picture </u></b>
                 <button expand="full">
                     <!-- <icon lazy="true" slot="start" name="person-circle-outline"></icon> -->
                     <label slot="end">...</label>
@@ -205,10 +205,13 @@
                 <h2><u>Service Information</u></h2>
 
                 <!--Category Select  -->
-                <label>Type of service : </label>
-                <select class="SearchStyleOptionBox" [(ngModel)]="ServiceListSelectMenu" name="ServiceListSelectMenu" >
-                    <option *ngFor="let Categorcard of categoriesOBJ;let i=index">
-                        {{Categorcard.category.typeOfService}}</option>
+                <label>Type of service :
+                    <br>
+                    <label style="font-size: x-small; color: gray;">{{GetServiceAString}}</label></label>
+                <select class="SearchStyleOptionBox" [(ngModel)]="ServiceListSelectMenu" name="ServiceListSelectMenu"
+                    aria-placeholder="GetServiceAString">
+                    <option *ngFor="let Categorcard of ServiceListOBJ;let i=index">
+                        {{Categorcard.ServiceList.typeOfService}}</option>
                 </select>
 
                 <label position="floating">Call out fee</label>
@@ -242,7 +245,9 @@
                 <h2><u>Work Locations:</u></h2>
 
                 <br>
-                <label>Work Locations : </label>
+                <label>Work Locations :
+                     <br>
+                    <label style="font-size: x-small; color: gray;">{{GetLocationAString}}</label></label>
                 <select class="SearchStyleOptionBox" [(ngModel)]="ProvinceSelectMenu" name="ProvinceSelectMenu">
                     <option *ngFor="let card of provinceList;let i=index">
                         {{card.Province}}</option>
@@ -251,7 +256,7 @@
             </div>
 
         </div>
-        
+
         <div class="UserDetailBoxLeft" id="topDiv">
             <div id="insideDiv"><br>
                 <b><u>Gallary:</u></b>
@@ -276,6 +281,21 @@
             </div>
         </div>
         <button class="FooterButton" (click)="UpdateUserInformation()">Update </button>
+ 
+    <!-- View Image in Popup Window, class="containerViewImageBox", class="centerImage"  -->
+    <div id="ViewImage" class="modalViewImageBox">
+        <button (click)="ViewImageDetailBoxHide()" class="closeViewImageBox">X</button>
+        <div>
+            <div>
+                <img class="centerImage" [src]="ProfilePic" *ngIf="ViewProfilePic">
+                <button style="height: 100px;float: left;color: white;font-size: xx-large;background-color: #474e5d;"
+                    (click)="PreviousImageInDatabase()" *ngIf="HideImageButtonsforDatabase"><</button>
+                        <img class="centerImageGallary" [src]="ServiceImages" *ngIf="ViewImages">
+                        <button style="height: 100px;float: right;color: white;font-size: xx-large;background-color: #474e5d;"
+                            (click)="NextImageInDatabase()" *ngIf="HideImageButtonsforDatabase">></button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <br>

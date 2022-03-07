@@ -41,8 +41,6 @@ public provinceList: any = [
 public theCategory: any;
 public filteredList: any = [];
 public CategorySelect: boolean = false;
-public categoriesOBJ: any = [];
-public categoriesinOBJ: any = {};
 public counter: any;
 public testBool: boolean = false;
 
@@ -172,7 +170,8 @@ public ServiceMonday: boolean;
   public RegisterQuestionsFour: boolean = false;
 
   ngOnInit(): void {
-    this.GetUserData();
+    this.GetUserData(); // Get user info to be displayed
+    this.GetServiceCategories(); // get categories from the database
   }
   
 
@@ -196,8 +195,6 @@ public ServiceMonday: boolean;
     this.ShowLogin = false;
     this.LogedIn = true;
   }
-
-
 
   SubmitNextOne(){
      this.RegisterQuestionsTwo = true;
@@ -611,6 +608,27 @@ public ServiceMonday: boolean;
     this.FooterImageFullScreen = false;
     this.HideImageButtonsforDatabase = true;
     //this.AllFooterOptions = true;
+  }
+
+  GetServiceCategories(){
+    /* Populate the Ion Cards with the data from the database for service list*/
+    this.http.get('https://localhost:5001/getServiceList').subscribe(GetAllServiceList => {
+      ////console.log(GetAllServiceList);
+      this.testBool = false;
+      this.counter = 0;
+
+      while (this.testBool != true) {
+        this.ServiceListInOBJ = {};
+        if (GetAllServiceList[this.counter] == undefined) {
+          this.testBool = true;
+        }
+        if (GetAllServiceList[this.counter] != undefined) {
+          this.ServiceListInOBJ.ServiceList = GetAllServiceList[this.counter];
+          this.ServiceListOBJ.push(this.ServiceListInOBJ);
+        }
+        this.counter++;
+      }
+    });
   }
 
   //InfoLinks (Bottom of the page Routers)
